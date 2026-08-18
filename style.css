@@ -5,186 +5,237 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Colores extraídos de tu imagen */
+    --royal-blue: #1A3C73;
+    --cream-bg: #F4F0E9;
+    --text-dark: #222222;
+    --text-light: #555555;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    color: #111;
+    color: var(--text-dark); 
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    /* Imagen de rosas blancas de fondo simulando tu referencia */
+    /* Fondo botánico suave */
     background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1080&auto=format&fit=crop') center/cover no-repeat fixed;
     overflow-x: hidden;
 }
 
-/* Capa blanca semi-transparente para dar el look "leche" de la imagen */
+/* Capa semi-transparente en tono CREMA en lugar de blanco puro */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.75); /* Ajusta este valor si quieres que se vean más o menos las rosas */
+    background: rgba(244, 240, 233, 0.88); /* Tono crema cálido con 88% de opacidad */
     z-index: 1;
 }
 
-/* Contenedor principal */
+/* Contenedor principal alineado arriba */
 .container {
     position: relative;
     z-index: 2;
     width: 100%;
     max-width: 450px;
-    padding: 40px 20px;
+    padding: 40px 20px 80px; 
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
-/* Títulos cursivos ("Save the date") */
-.title-container {
+/* --- Título "Save the Date" --- */
+.title-wrapper {
     position: relative;
-    height: 180px;
     width: 100%;
+    height: 160px;
     margin-bottom: 20px;
 }
 
 .script-text {
     font-family: 'Great Vibes', cursive;
-    color: #111;
+    color: var(--text-dark);
     position: absolute;
     line-height: 1;
     font-weight: 400;
 }
 
 .save {
-    font-size: 5.5rem;
+    font-size: 5rem;
     top: 0;
-    left: 50%;
-    transform: translateX(-60%);
+    right: 20px;
 }
 
 .the {
-    font-size: 3rem;
-    top: 60px;
-    left: 50%;
-    transform: translateX(30%);
+    font-size: 2.8rem;
+    top: 50px;
+    right: 120px;
 }
 
 .date {
-    font-size: 5rem;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-30%);
+    font-size: 4.8rem;
+    top: 75px;
+    right: 30px;
 }
 
-/* Mes y Año */
+/* --- Mes y Año --- */
 .month-year {
-    font-size: 1.1rem;
-    letter-spacing: 4px;
+    font-size: 1rem;
+    letter-spacing: 5px;
     font-weight: 300;
     margin-bottom: 30px;
-    color: #222;
+    color: var(--text-light);
 }
 
-/* Calendario en Grid */
+/* --- Calendario --- */
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 12px 8px;
+    gap: 12px 10px;
     width: 100%;
     max-width: 320px;
     margin-bottom: 40px;
 }
 
 .day-head {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 1px;
-    color: #555;
+    color: #888;
     margin-bottom: 5px;
 }
 
 .day {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 300;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30px;
-    color: #222;
+    color: var(--text-dark);
+    position: relative;
 }
 
-/* Día 23 con el Corazón Negro */
+/* Día 23 - Corazón Azul con Latido */
 .heart-day {
-    position: relative;
-    color: white;
     font-weight: 500;
 }
 
-.heart-day svg {
+.heart-path {
+    fill: var(--royal-blue); /* Color azul extraído */
+}
+
+.heart-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35px; /* Tamaño del corazón */
-    height: 35px;
-    z-index: -1;
-}
-
-.heart-day span {
-    position: relative;
+    width: 34px;
+    height: 34px;
     z-index: 1;
+    animation: heartbeat 1.5s infinite;
 }
 
-/* Nombres ("Aida & Geovanny") */
+.heart-text {
+    position: relative;
+    z-index: 2;
+    color: var(--cream-bg); /* Texto color crema dentro del corazón */
+}
+
+@keyframes heartbeat {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    15% { transform: translate(-50%, -50%) scale(1.15); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    45% { transform: translate(-50%, -50%) scale(1.15); }
+    70% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* --- Nombres en Azul --- */
 .names {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5rem;
     font-weight: 400;
-    color: #111;
-    margin-bottom: 15px;
+    color: var(--royal-blue); /* Color azul extraído */
+    margin-bottom: 25px;
 }
 
-/* Detalles extra */
-.footer {
+/* --- Mensaje Emotivo --- */
+.formal-msg {
     font-size: 0.75rem;
-    letter-spacing: 3px;
-    font-weight: 400;
-    color: #444;
-    margin-bottom: 30px;
-}
-
-.details {
-    font-size: 0.65rem;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     line-height: 1.8;
     font-weight: 300;
-    color: #444;
+    color: var(--text-light);
+    max-width: 380px;
     margin-bottom: 40px;
 }
 
-/* Botón transparente y limpio */
+/* --- Botón en Azul --- */
 .btn {
     background: transparent;
-    border: 1px solid #111;
-    color: #111;
+    border: 1px solid var(--royal-blue);
+    color: var(--royal-blue);
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 2px;
-    padding: 14px 30px;
+    padding: 14px 32px;
     cursor: pointer;
-    border-radius: 30px; /* Bordes redondeados sutiles */
+    border-radius: 30px;
     transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background: #111;
-    color: #fff;
+    background: var(--royal-blue);
+    color: var(--cream-bg);
 }
 
-/* Animaciones (Fade Up) */
-.animate-up {
+/* --- Flecha de Scroll Dinámica --- */
+.scroll-arrow {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.6;
+    z-index: 10;
+    animation: slideBounce 2s infinite ease-in-out;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.scroll-arrow span {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    color: var(--text-light);
+}
+
+.scroll-arrow svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-light);
+}
+
+.scroll-arrow.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@keyframes slideBounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 10px); }
+}
+
+/* --- Animaciones de Entrada --- */
+.fade-in-up {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -196,9 +247,6 @@ body {
 .delay-4 { animation-delay: 0.8s; }
 .delay-5 { animation-delay: 1.0s; }
 .delay-6 { animation-delay: 1.2s; }
-.delay-7 { animation-delay: 1.4s; }
-.delay-8 { animation-delay: 1.6s; }
-.delay-9 { animation-delay: 1.8s; }
 
 @keyframes fadeInUp {
     to {
