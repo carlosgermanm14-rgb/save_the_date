@@ -1,0 +1,208 @@
+/* Reseteo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #111;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Imagen de rosas blancas de fondo simulando tu referencia */
+    background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1080&auto=format&fit=crop') center/cover no-repeat fixed;
+    overflow-x: hidden;
+}
+
+/* Capa blanca semi-transparente para dar el look "leche" de la imagen */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75); /* Ajusta este valor si quieres que se vean más o menos las rosas */
+    z-index: 1;
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Títulos cursivos ("Save the date") */
+.title-container {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.script-text {
+    font-family: 'Great Vibes', cursive;
+    color: #111;
+    position: absolute;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.save {
+    font-size: 5.5rem;
+    top: 0;
+    left: 50%;
+    transform: translateX(-60%);
+}
+
+.the {
+    font-size: 3rem;
+    top: 60px;
+    left: 50%;
+    transform: translateX(30%);
+}
+
+.date {
+    font-size: 5rem;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-30%);
+}
+
+/* Mes y Año */
+.month-year {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Calendario en Grid */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px 8px;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 40px;
+}
+
+.day-head {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.day {
+    font-size: 0.9rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    color: #222;
+}
+
+/* Día 23 con el Corazón Negro */
+.heart-day {
+    position: relative;
+    color: white;
+    font-weight: 500;
+}
+
+.heart-day svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px; /* Tamaño del corazón */
+    height: 35px;
+    z-index: -1;
+}
+
+.heart-day span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Nombres ("Aida & Geovanny") */
+.names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+/* Detalles extra */
+.footer {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    font-weight: 400;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.details {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+/* Botón transparente y limpio */
+.btn {
+    background: transparent;
+    border: 1px solid #111;
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    padding: 14px 30px;
+    cursor: pointer;
+    border-radius: 30px; /* Bordes redondeados sutiles */
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* Animaciones (Fade Up) */
+.animate-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
+.delay-6 { animation-delay: 1.2s; }
+.delay-7 { animation-delay: 1.4s; }
+.delay-8 { animation-delay: 1.6s; }
+.delay-9 { animation-delay: 1.8s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
